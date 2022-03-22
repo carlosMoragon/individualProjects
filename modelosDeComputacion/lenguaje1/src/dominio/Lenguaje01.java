@@ -13,13 +13,7 @@ public class Lenguaje01{
 		Random rd = new Random();
 		
 		 Supplier<Boolean> aleatorio = () -> rd.nextBoolean();
-                        /*int i = (int) Math.random()*3;
-                        if(i % 2 == 0){
-                                return true;
-                        }else{
-                                return false;
-                        }*/
-		
+
 		if(aleatorio.get()){
 			palabra = palabra + "A1";
 			if(palabra.contains("A0") && aleatorio.get()){

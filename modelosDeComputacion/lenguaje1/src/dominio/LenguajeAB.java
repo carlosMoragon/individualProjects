@@ -4,8 +4,8 @@ public class LenguajeAB{
 
 	public String generar(int n, String palabra){
 
-		//		S::= SaBB | J
-		//			B ::= b
+		//S::= SaBB | J
+		//B ::= b
 
 		if(n == 0){
 			return palabra;
