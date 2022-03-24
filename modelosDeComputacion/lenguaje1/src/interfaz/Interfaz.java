@@ -14,9 +14,11 @@ public class Interfaz{
 	private String lenguaje = sc.next();
 
 	LenguajeAB generarAB = new LenguajeAB();
+	
 	Lenguaje01 generar01 = new Lenguaje01();
 
-	Stream.Builder<String> stBuilder = Stream.builder(); 
+	private Stream.Builder<String> stBuilder = Stream.builder(); 
+
 	private Consumer<List<String>> generar = x -> {
 		if(lenguaje.equalsIgnoreCase("ab")){
 			for(int i = 0; i < 10; i++){
