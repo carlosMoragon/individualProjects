@@ -17,6 +17,13 @@ public class Interfaz{
 		jugador.setCarton(carton);
 		//System.out.println(carton);
 		
+		Consumer<Object> print = System.out::println;
+
+		print.accept("Hola jugador, buena suerte con el Bingo.\nEste es tu carton:\n" + carton);
+		print.accept("\n\n¡Que comienze el BINGO!");
+		bolas.generarBolas();
+
+
 
 		return "";
 	}
