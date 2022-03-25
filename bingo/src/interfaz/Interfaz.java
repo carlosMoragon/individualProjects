@@ -3,9 +3,9 @@ package interfaz;
 import dominio.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.function.*;
 public class Interfaz{
-	public String procesarPeticion(){
+	public void procesarPeticion(){
 		Carton carton = new Carton();
 		Bolas bolas = new Bolas();
 		Jugador jugador = new Jugador();
@@ -21,11 +21,7 @@ public class Interfaz{
 
 		print.accept("Hola jugador, buena suerte con el Bingo.\nEste es tu carton:\n" + carton);
 		print.accept("\n\n¡Que comienze el BINGO!");
-		bolas.generarBolas();
-
-
-
-		return "";
+		bolas.generarBolas();	
 	}
 
 }

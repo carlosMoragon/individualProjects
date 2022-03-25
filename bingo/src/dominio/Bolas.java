@@ -17,7 +17,7 @@ public class Bolas{
 		for(Integer i: numeros){
 			posicion = (int)(Math.random() * (numeros.size() - 1));
 			System.out.println("El: " + numeros.get(posicion));
-			player1.tachar();
+			player1.marcar();
 			//meter metodo que interactue con el jugador para que marque el numero si lo tiene
 			historial.add(numeros.get(posicion));
 			numeros.remove(posicion);

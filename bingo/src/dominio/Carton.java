@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Carton{
 
 	private ArrayList<Integer> numeros = new ArrayList<>();
-	int[][] carton = new int[3][5];
+	String[][] carton = new String[3][5];
 	
 	//Supplier<Integer> random = () -> (int) Math.random()+1 *79;
-	public int[][] generarCarton(){
+	public String[][] generarCarton(){
 		for(int i = 1; i<= 80; i++){
 			numeros.add(i);
 		}
@@ -16,8 +16,8 @@ public class Carton{
 
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 5; j++){
-				carton[i][j] = numeros.get((int) (Math.random()*numeros.size()-1) + 1);
-				numeros.remove(numeros.indexOf(carton[i][j]));
+				carton[i][j] = "" + numeros.get((int) (Math.random()*numeros.size()-1) + 1);
+				//numeros.remove(numeros.indexOf(carton[i][j]));
 			}
 		}
 		return carton;
@@ -44,7 +44,7 @@ public class Carton{
 		return numeros;
 	}
 
-	public int[][] getCarton(){
+	public String[][] getCarton(){
 		return carton;
 	}
 
