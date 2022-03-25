@@ -5,19 +5,18 @@ import java.util.ArrayList;
 public class Carton{
 
 	private ArrayList<Integer> numeros = new ArrayList<>();
-	int[][] carton = new int[3][5];
+	String[][] carton = new String[3][5];
 	
 	//Supplier<Integer> random = () -> (int) Math.random()+1 *79;
-	Random rnd = new Random();
-	public int[][] generarCarton(){
+	public String[][] generarCarton(){
 		for(int i = 1; i<= 80; i++){
-			numeros.add(i);
+			numeros.add(Integer.valueOf(i));
 		}
 		
 
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 5; j++){
-				carton[i][j] = numeros.get((int) (Math.random()*numeros.size()-1) + 1);
+				carton[i][j] = "" + numeros.get((int) (Math.random()*numeros.size()-1) + 1);
 				numeros.remove(numeros.indexOf(carton[i][j]));
 			}
 		}
@@ -41,5 +40,12 @@ public class Carton{
 		return output.toString();
 	}
 	
+	public ArrayList<Integer> getNumeros(){
+		return numeros;
+	}
+
+	public String[][] getCarton(){
+		return carton;
+	}
 
 }

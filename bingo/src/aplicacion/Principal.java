@@ -1,11 +1,11 @@
 package aplicacion;
-import dominio.*;
+import interfaz.Interfaz;
 
 public class Principal{
 	public static void main(String[] args){
 		System.out.println("------------------------------------");
-		Carton carton = new Carton();
-		carton.generarCarton();
-		System.out.println(carton);
+		Interfaz inter = new Interfaz();
+
+		inter.procesarPeticion();
 	}
 }
