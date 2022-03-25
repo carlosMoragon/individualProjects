@@ -1,15 +1,16 @@
 package dominio;
 
 import java.util.Scanner;
+import java.lang.NullPointerException;
 
 public class Jugador{
-	Carton carton;
+	String[][] carton;
 	String marca = "█";
 	boolean marcar2 = true;
 	Scanner sc = new Scanner(System.in);
 	
 	public void setCarton(Carton carton){
-		this.carton = carton;
+		this.carton = carton.carton;
 	}
 	
 	public String[][] marcar(){
@@ -23,8 +24,7 @@ public class Jugador{
 			int i = sc.nextInt();
 			System.out.println("introduce la columna");
 			int j = sc.nextInt();
-			carton.carton[i][j] = "█";
-
+			carton[i][j] = "█";
 			System.out.println("¿Desea marcar otro? - n ó y -");
 			String marcarVarios = sc.next();
 
@@ -44,6 +44,6 @@ public class Jugador{
 			marcar2 = true;
 		}
 		}
-		return carton.carton;	
+		return carton;	
 	}
 }
