@@ -8,6 +8,7 @@ public class Mover {
     private int[] posicion = new int[2];
     private int[] fin = new int[2];
     private static String player = "o";
+    private static String minotauro = "M";
 
     public int[] getPosicion() {
         return posicion;
@@ -44,6 +45,14 @@ public class Mover {
             x[posicion[0]][posicion[1]] = " ";
             x[posicion[0]][posicion[1] - 1] = player;
             posicion[1]--;
+        }
+    };
+
+    public BiConsumer<String[][], int[]> kameHameJa = (x,y) -> {
+        for(int i = 0; i < 5; i++){
+                x[y[0] + i][y[1] + 1] = " ";
+                x[y[0] + i][y[1]] = " ";
+                x[y[0]][y[1] + 1] = " ";
         }
     };
 

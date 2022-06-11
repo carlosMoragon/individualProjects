@@ -26,6 +26,11 @@ public class Interfaz {
                 control.left.accept(MAPA);
             }else if ("d".equals(ctrl)){
                 control.right.accept(MAPA);
+            }else if("god".equals(ctrl)){
+                int[] x = new int[2];
+                x[0] = 5;
+                x[1] = 5;
+                control.kameHameJa.accept(MAPA, x);
             }
             if(control.getPosicion()[0] == control.getFin()[0] && control.getPosicion()[1] == control.getFin()[1]){
                 ctrl = "exit";

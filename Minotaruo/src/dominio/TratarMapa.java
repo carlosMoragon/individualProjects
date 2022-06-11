@@ -8,6 +8,8 @@ import java.util.function.Consumer;
 public class TratarMapa {
     private static final int[] dimensiones = new int[2];
     private static File MAPA = new File("lab5.txt");
+    //private static File MAPA = new File("lab10.txt");
+    //private static File MAPA = new File("lab50.txt");
 
     public int[] getDimensiones() {
         return dimensiones;
