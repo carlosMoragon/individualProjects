@@ -36,13 +36,19 @@ public class TratarMapa {
                 }
             }
         }
+        dimensiones[0] = una.length;
+        dimensiones[1] = una[0].length();
         return dos;
     }
 
     public Consumer<String[][]> print = x -> {
-        for(int i = 0; i < dimensiones[0]; i++){
+        for(int i = 0; i < dimensiones[0]; i++){;
             for(int j = 0; j < dimensiones[1]; j++) {
-                System.out.println(x[i][j]);
+                if(j == dimensiones[1]-1){
+                    System.out.println(x[i][j]);
+                }else{
+                    System.out.print(x[i][j]);
+                }
             }
         }
     };
