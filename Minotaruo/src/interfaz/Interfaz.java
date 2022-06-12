@@ -1,42 +1,50 @@
 package interfaz;
 
 import dominio.*;
+
+import java.io.File;
 import java.util.Scanner;
 
 public class Interfaz {
 
     public void procesarLlamada(){
         Scanner sc = new Scanner(System.in);
-        TratarMapa inicio = new TratarMapa();
-        Mover control = new Mover();
-        String[][] MAPA = inicio.inicializacion();
+        Mapa inicio = new Mapa(new File("lab5.txt"));
 
-        control.reset.accept(MAPA, inicio.getDimensiones());
-        inicio.print.accept(MAPA);
+
+        Mover jugador = new Mover(new Players("o", new int[]{0,0}));
+        Mover minotauro = new Mover(new Players("M", new int[]{0,0}));
+
+
+        inicio.inicializacion();
+
+        minotauro.getPlayer().setPosicionRandom(inicio.getDimensiones());
+        jugador.reset.accept(inicio.getPlano(), inicio.getDimensiones());
+        minotauro.colocar.accept(inicio.getPlano());
+        inicio.print.accept(inicio.getPlano());
 
         String ctrl = "";
         while(!ctrl.equalsIgnoreCase("exit")){
             ctrl = sc.next();
             if("w".equals(ctrl)){
-                System.out.println("entra en up");
-                control.up.accept(MAPA);
+                jugador.up.accept(inicio.getPlano());
             }else if("s".equals(ctrl)){
-                control.down.accept(MAPA);
+                jugador.down.accept(inicio.getPlano());
             }else if ("a".equals(ctrl)){
-                control.left.accept(MAPA);
+                jugador.left.accept(inicio.getPlano());
             }else if ("d".equals(ctrl)){
-                control.right.accept(MAPA);
+                jugador.right.accept(inicio.getPlano());
             }else if("god".equals(ctrl)){
                 int[] x = new int[2];
                 x[0] = 5;
                 x[1] = 5;
-                control.kameHameJa.accept(MAPA, x);
+                jugador.kameHameJa.accept(inicio.getPlano(), x);
             }
-            if(control.getPosicion()[0] == control.getFin()[0] && control.getPosicion()[1] == control.getFin()[1]){
+            if(jugador.getPlayer().getPosicion()[0] == jugador.getFin()[0] && jugador.getPlayer().getPosicion()[1] == jugador.getFin()[1]){
                 ctrl = "exit";
                 System.out.println("FELICIDADES HAS GANADO!!!!");
             }
-            inicio.print.accept(MAPA);
+            inicio.print.accept(inicio.getPlano());
         }
     }
 }

@@ -5,17 +5,24 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
-public class TratarMapa {
-    private static final int[] dimensiones = new int[2];
-    private static File MAPA = new File("lab5.txt");
-    //private static File MAPA = new File("lab10.txt");
-    //private static File MAPA = new File("lab50.txt");
+public class Mapa {
+    private final int[] dimensiones = new int[2];
+    private File MAPA ;
+    private String[][] plano ;
 
     public int[] getDimensiones() {
         return dimensiones;
     }
 
-    public String[][] inicializacion() {
+    public String[][] getPlano(){
+        return plano;
+    }
+
+    public Mapa(File MAPA){
+        this.MAPA = MAPA;
+    }
+
+    public void inicializacion() {
         String lineaMAP = "";
         try {
             Scanner sc = new Scanner(MAPA);
@@ -26,7 +33,7 @@ public class TratarMapa {
             e.printStackTrace();
         }
 
-        return graficos(lineaMAP);
+        plano = graficos(lineaMAP);
 
     }
 
