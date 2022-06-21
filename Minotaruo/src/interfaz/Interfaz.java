@@ -9,7 +9,7 @@ public class Interfaz {
 
     public void procesarLlamada(){
         Scanner sc = new Scanner(System.in);
-        Mapa inicio = new Mapa(new File("lab5.txt"));
+        Mapa inicio = new Mapa(new File("lab50.txt"));
 
 
         Mover jugador = new Mover(new Players("o", new int[]{0,0}));
@@ -43,6 +43,8 @@ public class Interfaz {
             if(jugador.getPlayer().getPosicion()[0] == jugador.getFin()[0] && jugador.getPlayer().getPosicion()[1] == jugador.getFin()[1]){
                 ctrl = "exit";
                 System.out.println("FELICIDADES HAS GANADO!!!!");
+            }else if(jugador.getPlayer().getPosicion() == minotauro.getPlayer().getPosicion()){
+                System.out.println("pierde");
             }
             inicio.print.accept(inicio.getPlano());
         }
