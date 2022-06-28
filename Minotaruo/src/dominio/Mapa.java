@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.function.Consumer;
+import java.util.Stream;
 
 public class Mapa {
     private final int[] dimensiones = new int[2];
@@ -64,5 +65,21 @@ public class Mapa {
             }
         }
     };
-}
 
+    public Consumer<int[]> printNiebla = x -> {
+        for(int i = 0; i < dimensiones[0]; i++){;
+            for(int j = 0; j < dimensiones[1]; j++) {
+                if(Stream.iterate(-1, y -> y + 1).limit(2).anyMatch(y -> y + x[0] == i) && Stream.iterate(-1, x -> x + 1).limit(2).anyMatch(y -> y + x[1] == j)){
+                    if (plano[i][j].equals("X")) {
+                        plano[i][j] = "█";
+                    }
+                    if(j == dimensiones[1]-1){
+                        System.out.println(plano[i][j]);
+                    }else{
+                        System.out.print(plano[i][j]);
+                    }
+                }
+            }
+        }
+    };
+}
