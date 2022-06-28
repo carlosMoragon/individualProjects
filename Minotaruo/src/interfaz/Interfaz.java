@@ -21,6 +21,7 @@ public class Interfaz {
         minotauro.getPlayer().setPosicionRandom(inicio.getDimensiones());
         jugador.reset.accept(inicio.getPlano(), inicio.getDimensiones());
         minotauro.colocar.accept(inicio.getPlano());
+        //IDEA: TRATAR A LA SALIDA COMO UN JUGADOR INMOVIL; PARA PODER USAR EL METODO COLOCAR
         inicio.print.accept(inicio.getPlano());
 
         String ctrl = "";
