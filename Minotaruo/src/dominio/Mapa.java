@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.function.Consumer;
-import java.util.Stream;
+import java.util.stream.Stream;
 
-public class Mapa {
+public class Mapa{
     private final int[] dimensiones = new int[2];
     private File MAPA ;
     private String[][] plano ;
@@ -54,13 +54,18 @@ public class Mapa {
     public Consumer<String[][]> print = x -> {
         for(int i = 0; i < dimensiones[0]; i++){;
             for(int j = 0; j < dimensiones[1]; j++) {
-                if (x[i][j].equals("X")) {
-                    x[i][j] = "█";
-                }
                 if(j == dimensiones[1]-1){
-                    System.out.println(x[i][j]);
+                    if (x[i][j].equals("X")) {
+                        System.out.println("█");
+                    }else{
+                        System.out.println(x[i][j]);
+                    }
                 }else{
-                    System.out.print(x[i][j]);
+                    if (x[i][j].equals("X")) {
+                        System.out.print("█");
+                    }else {
+                        System.out.print(x[i][j]);
+                    }
                 }
             }
         }
@@ -69,14 +74,21 @@ public class Mapa {
     public Consumer<int[]> printNiebla = x -> {
         for(int i = 0; i < dimensiones[0]; i++){;
             for(int j = 0; j < dimensiones[1]; j++) {
-                if(Stream.iterate(-1, y -> y + 1).limit(2).anyMatch(y -> y + x[0] == i) && Stream.iterate(-1, x -> x + 1).limit(2).anyMatch(y -> y + x[1] == j)){
-                    if (plano[i][j].equals("X")) {
-                        plano[i][j] = "█";
-                    }
-                    if(j == dimensiones[1]-1){
-                        System.out.println(plano[i][j]);
+                final int I = i;
+                final int J = j;
+                if(Stream.iterate(-1, y -> y + 1).limit(3).anyMatch(y -> y + x[0] == I ) && Stream.iterate(-1, y -> y + 1).limit(3).anyMatch(y -> y + x[1] == J)) {
+                    if(j == x[1]+1){
+                        if (plano[i][j].equals("X")) {
+                            System.out.println("█");
+                        }else{
+                            System.out.println(plano[i][j]);
+                        }
                     }else{
-                        System.out.print(plano[i][j]);
+                        if (plano[i][j].equals("X")) {
+                            System.out.print("█");
+                        }else{
+                            System.out.print(plano[i][j]);
+                        }
                     }
                 }
             }

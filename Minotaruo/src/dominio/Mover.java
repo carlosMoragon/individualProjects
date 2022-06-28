@@ -26,28 +26,28 @@ public class Mover {
     }
 
     public Consumer<String[][]> down = x -> {
-        if(!x[player.getPosicion()[0]+1][player.getPosicion()[1]].equals("█")){
+        if(!x[player.getPosicion()[0]+1][player.getPosicion()[1]].equals("X")){
             x[player.getPosicion()[0]][player.getPosicion()[1]] = " ";
             x[player.getPosicion()[0] + 1][player.getPosicion()[1]] = player.toString();
             player.getPosicion()[0]++;
         }
     };
     public Consumer<String[][]> up = x -> {
-        if(!x[player.getPosicion()[0]-1][player.getPosicion()[1]].equals("█")){
+        if(!x[player.getPosicion()[0]-1][player.getPosicion()[1]].equals("X")){
             x[player.getPosicion()[0]][player.getPosicion()[1]] = " ";
             x[player.getPosicion()[0] - 1][player.getPosicion()[1]] = player.toString();
             player.getPosicion()[0]--;
         }
     };
     public Consumer<String[][]> right = x -> {
-        if(!x[player.getPosicion()[0]][player.getPosicion()[1]+1].equals("█")){
+        if(!x[player.getPosicion()[0]][player.getPosicion()[1]+1].equals("X")){
             x[player.getPosicion()[0]][player.getPosicion()[1]] = " ";
             x[player.getPosicion()[0]][player.getPosicion()[1]+1] = player.toString();
             player.getPosicion()[1]++;
         }
     };
     public Consumer<String[][]> left = x -> {
-        if(!x[player.getPosicion()[0]][player.getPosicion()[1] - 1].equals("█")){
+        if(!x[player.getPosicion()[0]][player.getPosicion()[1] - 1].equals("X")){
             x[player.getPosicion()[0]][player.getPosicion()[1]] = " ";
             x[player.getPosicion()[0]][player.getPosicion()[1] - 1] = player.toString();
             player.getPosicion()[1]--;
