@@ -10,6 +10,8 @@ public class Mapa{
     private final int[] dimensiones = new int[2];
     private File MAPA ;
     private String[][] plano ;
+
+    //PONER QUE EL USUARIO ELIJA LA DENSIDAD
     private int densidad = 2;
 
     public int[] getDimensiones() {
@@ -77,7 +79,9 @@ public class Mapa{
             for(int j = 0; j < dimensiones[1]; j++) {
                 final int I = i;
                 final int J = j;
-                if(Stream.iterate(-1, y -> y + 1).limit((int)Math.pow(2,densidad) +1 ).anyMatch(y -> y + x[0] == I ) && Stream.iterate(-1, y -> y + 1).limit((int)Math.pow(2,densidad) +1 ).anyMatch(y -> y + x[1] == J)) {
+                if(Stream.iterate(-1, y -> y + 1).limit((int)Math.pow(2,densidad) +1 ).anyMatch(y -> y + x[0] == I ) &&
+                        Stream.iterate(-1, y -> y + 1).limit((int)Math.pow(2,densidad) +1 ).anyMatch(y -> y + x[1] == J)) {
+
                     if(j == x[1]+(int)Math.pow(2,densidad)-1){
                         if (plano[i][j].equals("X")) {
                             System.out.println("█");
