@@ -22,7 +22,15 @@ public class Carton{
 		}
 		return carton;
 	}
-	
+
+	public ArrayList<Integer> getNumeros(){
+		return numeros;
+	}
+
+	public String[][] getCarton(){
+		return carton;
+	}
+
 	public String toString(){
 		StringBuilder output = new StringBuilder();
 		output.append("|");
@@ -40,12 +48,6 @@ public class Carton{
 		return output.toString();
 	}
 	
-	public ArrayList<Integer> getNumeros(){
-		return numeros;
-	}
 
-	public String[][] getCarton(){
-		return carton;
-	}
 
 }

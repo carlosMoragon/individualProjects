@@ -9,6 +9,7 @@ public class Interfaz{
 		Carton carton = new Carton();
 		Bolas bolas = new Bolas();
 		Jugador jugador = new Jugador();
+		Scanner sc = new Scanner(System.in);
 
 		bolas.setNumeros(carton.getNumeros());
 
@@ -16,12 +17,17 @@ public class Interfaz{
 		
 		jugador.setCarton(carton);
 		//System.out.println(carton);
-		
-		Consumer<Object> print = System.out::println;
 
-		print.accept("Hola jugador, buena suerte con el Bingo.\nEste es tu carton:\n" + carton);
-		print.accept("\n\n¡Que comienze el BINGO!");
-		bolas.generarBolas();	
+		System.out.println("Hola jugador, buena suerte con el Bingo.\nEste es tu carton:\n" + carton);
+		System.out.println("\n\n¡Que comienze el BINGO!");
+		bolas.generarBolas();
+		System.out.println("¿Deseas marcar algun numero?");
+		String respuesta = sc.next();
+		if (sc.equalsIgnoreCase("y")){
+			jugador.marcar.accept(carton.getCarton());
+		}else{
+			System.out.println();
+		}
 	}
 
 }
