@@ -89,11 +89,11 @@ public class Mover {
 
     public BiConsumer<String[][], int[]> aleatorio = (x,y) -> {
         //System.out.println("s ejecuta");
-        System.out.println(player.getPosicion()[0] - y[0]);
-        System.out.println(x[player.getPosicion()[0]+1][player.getPosicion()[1]]);
+        /*System.out.println(player.getPosicion()[0] - y[0]);
+        System.out.println(x[player.getPosicion()[0]+1][player.getPosicion()[1]]);*/
         //derecha
         if(player.getPosicion()[0] - y[0] > 0 && !x[player.getPosicion()[0]+1][player.getPosicion()[1]].equals("X")){
-            System.out.println("entra");
+            //System.out.println("entra");
             up.accept(x);
         }else if(player.getPosicion()[1] - y[1] > 0 && !x[player.getPosicion()[0]][player.getPosicion()[1]+1].equals("X")){
             right.accept(x);
