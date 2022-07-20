@@ -7,7 +7,8 @@ import java.util.List;
 public class MochilaApplication {
 
     public static void main(String[] args) {
-        precioValor(new int[]{12,2,1,4,1}, 15, new int[]{4,2, 1, 10, 2}).stream().forEach(System.out::println);
+        //precioValor(new int[]{12,2,1,4,1}, 15, new int[]{4,2, 1, 10, 2}).stream().forEach(System.out::println);
+        mochila(3, 15, new Objeto[]{new Objeto(2, 4), new Objeto(4, 12), new Objeto(5, 6)});
         /*
         maximizar el valor de los elementos dentro de la mochila.
         ejemplo:
@@ -20,7 +21,7 @@ public class MochilaApplication {
          */
     }
 
-    public static List<Integer> precioValor(int[] masa, int pesoMax, int[] valor){
+    /*public static List<Integer> precioValor(int[] masa, int pesoMax, int[] valor){
         //obtener el objeto que tenga mejor relación de peso valor
         List<Integer> mochila = new ArrayList<>();
         int mejor = 0;
@@ -42,8 +43,20 @@ public class MochilaApplication {
 
         return mochila;
 
+    }*/
+
+    public static Objeto[] mochila(int espacios, int pesoMax, Objeto[] objetos){
+        if(espacios == 1){
+            int mejor = 0;
+            for (int i = 0; i < objetos.length; i++) {
+                if ((objetos[i].valor / objetos[i].peso) > (objetos[mejor].valor / objetos[mejor].peso) && objetos[i].peso < pesoMax) {
+                    mejor = i;
+                }
+            }
+            return new Objeto[]{mejor};
+        }else{
+            return mochila(espacios - 1, pesoMax, objetos);
+        }
     }
-
-
 
 }
